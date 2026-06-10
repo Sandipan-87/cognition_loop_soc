@@ -2,7 +2,7 @@
 
 This week you build an agent that researches the live web on its own. It reasons with Groq and acts with Playwright, looping until it can answer. You already have the pieces from Week 2 — now you wire them together.
 
-Read `README_RESOURCES.md` first.
+Read `README.md` first.
 
 These are goals, not strict recipes. Pick your own search source, prompts, and questions — make it your own as long as each file hits its goal.
 
