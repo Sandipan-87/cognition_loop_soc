@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "cognition_loop_soc",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}

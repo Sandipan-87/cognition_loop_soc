@@ -1,6 +1,10 @@
 # API Keys and Secrets
 .env
 
+# Agent persistence (user-specific)
+memory.json
+goals.json
+
 # Virtual Environments
 venv/
 env/
@@ -20,3 +24,5 @@ __pycache__/
 # OS Generated Files
 .DS_Store
 Thumbs.db
+
+.env

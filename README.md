@@ -150,6 +150,86 @@ We build the loop from scratch — no LangChain, no LlamaIndex. It is about 30 l
 
 Setup is the same as Week 2 (same `.env`, same Groq key, same model). Now go to `WEEK3_TASKS.md`.
 
+# Week 4 Learning Resources 
+
+ There is one genuinely new technical idea — saving data to a file — one idea worth a deeper second look now that you have built a real agent, and a short stack of "lean back and watch/read" links to get you dreaming about your final project. Pick what fills your gaps; you do not need every link.
+
+## What you should already know
+
+
+
+- Week 1: talking to an LLM, giving it a persona with a system prompt (`persona_call.py`), and getting clean JSON back (`json_extractor.py`).
+- Week 3: the ReAct loop, an in-chat `messages` list as memory, and chaining tools.
+
+This week takes the persona from Week 1, the loop from Week 3, and adds the one thing neither had: memory that survives the program closing — plus structured state your agent can act on.
+
+## The one new idea: persistence
+
+Everything your agent has remembered so far lives in the `messages` list. That list is in RAM. The moment your program exits, it is gone — the agent has amnesia every time you press run.
+
+Persistence means writing what matters to disk so it is still there next time. You do not need a database. A single JSON file your agent reads when it starts and writes when it learns something new is enough, and it is the same `json` you have used since Week 1.
+
+```python
+import json
+
+# write
+with open("memory.json", "w") as f:
+    json.dump(["likes Python", "name is Sam"], f, indent=2)
+
+# read
+with open("memory.json") as f:
+    facts = json.load(f)   # back to a Python list
+```
+
+That is the entire new concept. The context window is short-term memory; a file is long-term memory. Real assistants are built on exactly this split.
+
+Links:
+
+- Python `json` module (read `dump` and `load`): https://docs.python.org/3/library/json.html
+- Reading and writing files in Python (clear walkthrough): https://realpython.com/read-write-files-python/
+- Working with JSON in Python (short video): https://www.youtube.com/watch?v=9N6a-VLBa2I
+
+## Going one step further: structured state
+
+In File 2 your memory is a flat list of strings. In File 4 (the quest log) each item becomes a small object — `{"goal": "...", "done": false}`. That tiny change is a big idea: real agents do not store loose facts, they store **state with shape** they can update and reason over. A goal can be marked done; a fact usually cannot. Notice how naturally the same `json.load` / `json.dump` handles a list of dicts — you already know how to do this.
+
+- Python dictionaries (quick refresher): https://realpython.com/python-dicts/
+- Why JSON is the lingua franca of tools and APIs (short read): https://www.json.org/json-en.html
+
+## Worth a second look: what makes an agent an agent
+
+You have now built one. Re-read this with that experience — it lands completely differently than it would have in Week 2, and it is the best map for deciding what your final project should be.
+
+- Anthropic, "Building Effective Agents": https://www.anthropic.com/research/building-effective-agents
+
+As you read, notice that your Week 3 loop already *is* the core pattern they describe. You did not use a framework; you built the thing the frameworks wrap.
+
+## For your final project: memory, goals, and reflection
+
+These are the ideas the pros use to make an agent feel like it has a mind that persists. You do not need to implement them fully — skim them for inspiration and steal one idea for your `JOURNEY.md`.
+
+- Lilian Weng, "LLM Powered Autonomous Agents" — the **memory** and **planning** sections map directly onto Files 2 and 4: https://lilianweng.github.io/posts/2023-06-23-agent/
+- MemGPT / Letta — what happens when memory is too big for the context window (the exact problem the File 2 note warns about), solved properly: https://arxiv.org/abs/2310.08560
+- Reflexion — agents that look back at what they did and write themselves a note to do better next time. A fun, achievable stretch: have your agent decide *on its own* what is worth `remember()`-ing at the end of a chat: https://arxiv.org/abs/2303.11366
+
+## Worth a second look: personas and tool descriptions
+
+Two small skills you will lean on for the rest of the project.
+
+- A persona is just a well-written system prompt. The clearer and more specific it is, the more consistent the character. Anthropic's guide on system prompts: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts
+- The model decides when to use a tool based entirely on the tool's `description`. A vague description means the tool never gets called, or gets called wrongly. Treat tool descriptions as instructions to the model, not comments for yourself. (You already have the Groq tool-use docs from Week 2 — reuse them.)
+
+## Good habits, again
+
+- Print what you read from the file so you can *see* the memory and the quest log loading.
+- Start any JSON file as a valid empty list `[]`, never a blank file.
+- Keep your API key in `.env`, never in your code.
+
+That is everything. Now open `TASKS_WEEK4.md`, give your agent a self that lasts.
+
+
+
+
 
 
 

@@ -1,0 +1,1 @@
+Cognizant India's current market price is $43.94 USD. Please note that the stock price may fluctuate and may be different at the time of your inquiry. For the most up-to-date and accurate information, please visit financial websites such as Yahoo Finance, Bloomberg, or Google Finance.
