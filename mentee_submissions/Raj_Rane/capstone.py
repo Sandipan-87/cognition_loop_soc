@@ -68,12 +68,14 @@ def call_llm(client, messages, tools=None, max_retries=5):
     delay = 2  # seconds
     for attempt in range(max_retries):
         try:
-            return client.chat.completions.create(
-                model=MODEL,
-                messages=messages,
-                tools=tools,
-                tool_choice="auto" if tools else None,
-            )
+            kwargs = {
+                "model": MODEL,
+                "messages": messages,
+            }
+            if tools:
+                kwargs["tools"] = tools
+                kwargs["tool_choice"] = "auto"
+            return client.chat.completions.create(**kwargs)
         except RateLimitError as e:
             if attempt == max_retries - 1:
                 raise  # give up after the last attempt
