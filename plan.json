@@ -1,0 +1,25 @@
+{
+  "goal": "Write a python script that prints 'Hello World'",
+  "status": "done",
+  "current_step": 4,
+  "steps": [
+    {
+      "id": 1,
+      "task": "Open a text editor or IDE to create a new Python file",
+      "status": "done",
+      "result": "New file created: hello.py"
+    },
+    {
+      "id": 2,
+      "task": "Write the Python code to print 'Hello World' using the print function",
+      "status": "done",
+      "result": "```python\nprint(\"Hello World\")\n```"
+    },
+    {
+      "id": 3,
+      "task": "Run the Python script to execute the code and verify the output",
+      "status": "done",
+      "result": "Hello World"
+    }
+  ]
+}
