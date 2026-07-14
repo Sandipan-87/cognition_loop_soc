@@ -434,7 +434,7 @@ Ship stages 1–3 above. That is a legitimate, demonstrable "autonomous planning
 
 
 
--  **Checkpoint — July 14th (hard):** pushed to GitHub — an initialized `plan.json` (valid empty `{}` or `[]`), your `.env` wired up, and a basic Groq connection that makes one successful call. Miss this and you're flagged.
+-  **Checkpoint — July 14th (hard):** pushed to GitHub — an initialized `plan.json` (valid empty `{}` or `[]`), your `.env` wired up, and a basic Groq connection that makes one successful call.
 
 -  **Final — July 20th:** the complete capstone — all four organs, the 429 backoff, disciplined TPM context, and a `README`.
 
