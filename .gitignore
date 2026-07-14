@@ -6,6 +6,11 @@ myenv/
 memory.json
 goals.json
 
+.env
+memory.json
+goals.json
+*.tmp
+
 # Virtual Environments
 venv/
 env/
