@@ -1,1 +1,29 @@
+myenv/
+
+# Agent persistence (user-specific)
+memory.json
+goals.json
+*.tmp
+
+# Virtual Environments
+venv/
+env/
+ENV/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
 .env
