@@ -1,0 +1,24 @@
+{
+  "dataset_name": "Cardiovascular_Diagnostic_Engine_Core",
+  "dataset_records": 70000,
+  "features": [
+    "age",
+    "gender",
+    "systolic_bp",
+    "diastolic_bp",
+    "cholesterol",
+    "glucose"
+  ],
+  "target_variable": "cardio_disease_indicator",
+  "missing_values": 0,
+  "class_balance": {
+    "positive_class_ratio": 0.504,
+    "negative_class_ratio": 0.496
+  },
+  "current_baseline_metrics": {
+    "algorithm": "XGBoost",
+    "roc_auc": 0.81,
+    "accuracy": 0.74,
+    "loss_variance": 0.08
+  }
+}

@@ -1,12 +1,6 @@
-# API Keys and Secrets
-.env
 myenv/
 
 # Agent persistence (user-specific)
-memory.json
-goals.json
-
-.env
 memory.json
 goals.json
 *.tmp
@@ -31,4 +25,5 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Environment Variables
 .env
